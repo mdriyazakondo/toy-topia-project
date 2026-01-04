@@ -1,5 +1,5 @@
 import React from "react";
-import { FaStar } from "react-icons/fa";
+import { FaStar, FaBoxOpen } from "react-icons/fa"; // FaBoxOpen আইকনটি সুন্দর দেখাবে
 import { Link } from "react-router-dom";
 
 const SinglePruduct = ({ product }) => {
@@ -9,56 +9,58 @@ const SinglePruduct = ({ product }) => {
     price,
     rating,
     availableQuantity,
-    description,
     pictureURL,
     subCategory,
-    popularity,
   } = product;
 
   return (
     <div
-      className="shadow-md rounded-lg p-4 bg-white hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1"
+      className="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-2xl hover:border-purple-200 transition-all duration-500 overflow-hidden"
       data-aos="fade-up"
-      data-aos-duration="1000"
-      data-aos-delay="150"
     >
-      <div className="overflow-hidden border rounded-md border-gray-200 cursor-pointer group">
+      <div className="relative overflow-hidden h-64">
         <img
-          className="w-full h-[300px] object-cover rounded-md group-hover:scale-110 transition-all duration-700"
+          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
           src={pictureURL}
           alt={toyName}
         />
+        <div className="absolute top-3 left-3">
+          <span className="bg-white/90 backdrop-blur-sm text-purple-600 text-[12px] font-bold px-3 py-1 rounded-full shadow-sm uppercase">
+            {subCategory}
+          </span>
+        </div>
       </div>
 
-      <div className="space-y-2 mt-5">
-        <div className="flex items-center justify-start gap-2">
-          <p className="text-sm font-semibold text-purple-500 bg-purple-100 rounded-full py-1 px-4 text-center">
-            {subCategory}
-          </p>
-          <p className="text-sm font-semibold text-purple-500 bg-purple-100 rounded-full py-1 px-4 text-center">
-            {popularity}
-          </p>
+      <div className="p-5">
+        <div className="flex justify-between items-start mb-2">
+          <h4 className="text-lg font-bold text-gray-800 line-clamp-1 group-hover:text-purple-600 transition-colors">
+            {toyName}
+          </h4>
+          <div className="flex items-center gap-1 bg-yellow-50 px-2 py-1 rounded-lg">
+            <FaStar className="text-yellow-500 text-sm" />
+            <span className="text-xs font-bold text-gray-700">{rating}</span>
+          </div>
         </div>
 
-        <h4 className="text-lg font-semibold text-gray-700">{toyName}</h4>
-        <p className="text-gray-500 text-sm">{description.slice(0, 85)}...</p>
-        <p className="text-gray-600 font-semibold text-[15px]">
-          Available Quantity: {availableQuantity}
-        </p>
-
-        <div className="flex items-center justify-between">
-          <p className="text-gray-600 font-medium">Price: ${price}</p>
-          <p className="flex items-center gap-1 bg-purple-100 rounded-full py-1 px-2 text-purple-600">
-            <FaStar className="text-purple-500" />
-            {rating}
-          </p>
+        <div className="flex items-center gap-2 text-gray-500 text-sm mb-4">
+          <FaBoxOpen className="text-purple-400" />
+          <span>Stock: {availableQuantity} pcs</span>
         </div>
 
-        <Link to={`/products/${toyId}`}>
-          <button className="bg-linear-to-r from-purple-500 to-indigo-500 hover:from-indigo-600 hover:to-purple-600 text-white cursor-pointer w-full py-2 rounded-md mt-3 transition-all duration-300 ">
-            View More
-          </button>
-        </Link>
+        <div className="flex items-center justify-between mt-4">
+          <div>
+            <p className="text-xs text-gray-400 uppercase font-semibold">
+              Price
+            </p>
+            <p className="text-xl font-black text-purple-600">${price}</p>
+          </div>
+
+          <Link to={`/products/${toyId}`}>
+            <button className="bg-purple-600 hover:bg-purple-700 text-white text-sm font-semibold px-5 py-2.5 rounded-xl shadow-lg shadow-purple-100 hover:shadow-purple-200 transition-all active:scale-95">
+              View Details
+            </button>
+          </Link>
+        </div>
       </div>
     </div>
   );

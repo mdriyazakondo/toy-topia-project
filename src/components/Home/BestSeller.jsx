@@ -1,9 +1,11 @@
 import { BiStar } from "react-icons/bi";
-import { Link } from "react-router";
+import { HiOutlineArrowNarrowRight } from "react-icons/hi"; // নতুন আইকন
+import { Link } from "react-router-dom";
 
 const BestSeller = ({ seller }) => {
   const {
-    sellerName,
+    toyId, // seller.toyId এর বদলে সরাসরি toyId ডিস্ট্রাকচার করা ভালো
+    toyName, // sellerName এর বদলে যদি ডেটাতে toyName থাকে
     price,
     rating,
     availableQuantity,
@@ -11,42 +13,61 @@ const BestSeller = ({ seller }) => {
     subCategory,
     popularity,
   } = seller;
+
   return (
-    <div className="shadow p-4 rounded-md text-center group">
-      <div className="flex items-center justify-center px-6 pb-2">
-        <img
-          className="h-[200px] w-[200px] rounded-full border p-2 border-purple-600 overflow-hidden group-hover:scale-105 transition-all duration-300"
-          src={pictureURL}
-          alt=""
-        />
+    <div className="relative group bg-white p-6 rounded-3xl border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-500 text-center">
+      {/* Popularity Badge */}
+      <div className="absolute top-4 right-4 z-10">
+        <span className="bg-orange-500 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-tighter">
+          {popularity}
+        </span>
       </div>
-      <div className="mt-3">
-        <h4 className="text-xl font-semibold text-purple-700">{sellerName}</h4>
-        <div className="flex items-center gap-2 justify-center mt-3">
-          <p className="bg-purple-100 rounded-full text-purple-600 py-1 px-4">
-            {subCategory}
-          </p>
-          <p className="bg-purple-100 rounded-full text-purple-600 py-1 px-4">
-            {popularity}
-          </p>
-          <p className="bg-purple-100 rounded-full text-purple-600 py-1 px-4 flex items-center gap-1">
-            <BiStar />
-            {rating}
-          </p>
+
+      {/* Profile Image Section */}
+      <div className="relative flex items-center justify-center">
+        <div className="relative p-1 rounded-full bg-gradient-to-tr from-purple-500 to-indigo-500 group-hover:rotate-12 transition-transform duration-500">
+          <div className="bg-white p-1 rounded-full">
+            <img
+              className="h-40 w-40 md:h-48 md:w-48 object-cover rounded-full group-hover:scale-105 transition-all duration-500"
+              src={pictureURL}
+              alt={toyName}
+            />
+          </div>
         </div>
-        <div className="mt-3 flex items-center justify-center gap-6">
-          <p className=" font-semibold text-purple-600  ">Price: ${price}</p>
-          <p className=" font-semibold text-purple-600  ">
-            Abailabe : {availableQuantity}
-          </p>
+
+        {/* Rating Floating Tag */}
+        <div className="absolute -bottom-2 flex items-center gap-1 bg-white shadow-lg border border-gray-50 rounded-full px-3 py-1">
+          <BiStar className="text-orange-400 text-lg" />
+          <span className="text-sm font-bold text-gray-700">{rating}</span>
         </div>
-        <div className="mt-5 ">
+      </div>
+
+      {/* Content Section */}
+      <div className="mt-8">
+        <p className="text-xs font-bold text-purple-500 uppercase tracking-widest mb-1">
+          {subCategory}
+        </p>
+        <h4 className="text-xl font-extrabold text-gray-800 line-clamp-1 group-hover:text-purple-600 transition-colors">
+          {toyName || seller.sellerName}
+        </h4>
+
+        <div className="flex items-center justify-center gap-4 mt-4 text-sm font-medium">
+          <div className="text-gray-400">
+            Stock:{" "}
+            <span className="text-gray-700 font-bold">{availableQuantity}</span>
+          </div>
+          <div className="h-4 w-[1px] bg-gray-200"></div>
+          <div className="text-purple-600 font-bold text-lg">${price}</div>
+        </div>
+
+        {/* View More Button */}
+        <div className="mt-6">
           <Link
-            to={`/products/${seller.toyId}`}
-            className="text-white bg-linear-to-r from-purple-500 to-indigo-500 hover:from-indigo-600 hover:to-purple-600 rounded-md py-2 wuful
-         cursor-pointer px-8 "
+            to={`/products/${toyId}`}
+            className="inline-flex items-center justify-center gap-2 w-full py-3 bg-gray-900 text-white rounded-2xl font-semibold hover:bg-purple-600 transition-all duration-300 shadow-lg shadow-gray-200 hover:shadow-purple-200 active:scale-95 group/btn"
           >
-            View More
+            <span>View Details</span>
+            <HiOutlineArrowNarrowRight className="group-hover/btn:translate-x-1 transition-transform" />
           </Link>
         </div>
       </div>

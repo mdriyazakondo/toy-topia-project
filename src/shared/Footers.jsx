@@ -9,7 +9,7 @@ export default function Footers() {
         {/* --- Logo & Social --- */}
         <div className="max-w-sm">
           <Link to="/">
-            <img src="/img/logo2.png" alt="Logo" className="w-24" />
+            <h2 className="text-2xl font-bold text-purple-500 ">Toy Topia</h2>
           </Link>
           <p className="text-sm text-white/80 mb-4">
             Bringing joy to kids with the best toys. Explore our amazing
