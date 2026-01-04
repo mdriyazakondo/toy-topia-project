@@ -20,8 +20,8 @@ const Home = () => {
 
       <ProductsSection />
       <BestSellers />
-      <Accordion />
       <Testimonials />
+      <Accordion />
     </div>
   );
 };

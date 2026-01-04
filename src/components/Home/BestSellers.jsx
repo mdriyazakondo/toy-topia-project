@@ -39,7 +39,7 @@ const BestSellers = () => {
           <h2 className="text-4xl md:text-5xl font-black text-gray-900 mt-2">
             Top Rated <span className="text-purple-700">Best Sellers</span>
           </h2>
-          <div className="w-24 h-1.5 bg-gradient-to-r from-purple-500 to-indigo-500 mx-auto mt-4 rounded-full"></div>
+          <div className="w-24 h-1.5 bg-linear-to-r from-purple-500 to-indigo-500 mx-auto mt-4 rounded-full"></div>
           <p className="text-gray-500 mt-5 max-w-lg mx-auto text-lg">
             Discover our most loved and high-quality toys, handpicked for their
             exceptional rating and popularity.

@@ -71,7 +71,7 @@ const SingleToys = () => {
 
       {/* --- Main Section --- */}
       <div className="max-w-7xl mx-auto px-6 pt-32">
-        <div className="bg-white rounded-[32px] shadow-2xl shadow-purple-100/50 overflow-hidden border border-gray-100">
+        <div className="bg-white rounded-4xl shadow-2xl shadow-purple-100/50 overflow-hidden border border-gray-100">
           <div className="flex flex-col lg:flex-row">
             {/* Left: Image Section */}
             <div className="w-full lg:w-1/2 p-4 md:p-8" data-aos="fade-right">
@@ -115,7 +115,7 @@ const SingleToys = () => {
                     ${price}
                   </p>
                 </div>
-                <div className="w-[1px] h-10 bg-purple-200"></div>
+                <div className="w-px h-10 bg-purple-200"></div>
                 <div>
                   <p className="text-xs font-bold text-purple-400 uppercase">
                     Rating
@@ -174,7 +174,7 @@ const SingleToys = () => {
         {/* Features & Materials */}
         <div className="lg:col-span-2 space-y-8">
           <div
-            className="bg-white p-8 rounded-[32px] shadow-sm border border-gray-100"
+            className="bg-white p-8 rounded-4xl shadow-sm border border-gray-100"
             data-aos="fade-up"
           >
             <h3 className="text-2xl font-black text-gray-900 mb-6 flex items-center gap-2">
@@ -199,7 +199,7 @@ const SingleToys = () => {
 
           {/* Shipping & Manufacturing */}
           <div
-            className="bg-white p-8 rounded-[32px] shadow-sm border border-gray-100"
+            className="bg-white p-8 rounded-4xl shadow-sm border border-gray-100"
             data-aos="fade-up"
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -247,7 +247,7 @@ const SingleToys = () => {
         {/* Sidebar: Booking Form */}
         <div className="lg:col-span-1">
           <div
-            className="bg-gray-900 p-8 rounded-[32px] sticky top-32"
+            className="bg-gray-900 p-8 rounded-4xl sticky top-32"
             data-aos="zoom-in"
           >
             <h3 className="text-2xl font-black text-white mb-2">
@@ -293,7 +293,7 @@ const SingleToys = () => {
       {/* --- Reviews Section --- */}
       {reviews && (
         <div className="max-w-7xl mx-auto px-6 mt-12" data-aos="fade-up">
-          <div className="bg-white p-10 rounded-[32px] shadow-sm border border-gray-100">
+          <div className="bg-white p-10 rounded-4xl shadow-sm border border-gray-100">
             <h3 className="text-3xl font-black text-gray-900 mb-10 text-center">
               What Parents Say
             </h3>

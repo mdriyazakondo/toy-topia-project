@@ -77,7 +77,7 @@ const Navbar = () => {
           to="/profile"
           className={navStyles}
         >
-          Dashboard
+          Profile
         </NavLink>
       )}
     </>
@@ -85,7 +85,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ppx-6 md:px-12 lg:px-24 xl:px-36 ${
+      className={`fixed py-3 top-0 left-0 right-0 z-100 transition-all duration-500 ppx-6 md:px-12 lg:px-24 xl:px-36 ${
         scrolled
           ? "bg-white/80 backdrop-blur-xl shadow-lg py-3"
           : "bg-transparent"
@@ -102,24 +102,24 @@ const Navbar = () => {
           </h2>
         </Link>
 
-        {/* Desktop Links */}
         <div className="hidden md:flex lg:gap-10 md:gap-6 items-center">
           {links}
         </div>
 
-        {/* Auth Section */}
         <div className="hidden md:flex items-center gap-5">
           {loading ? (
             <div className="w-6 h-6 border-3 border-purple-200 border-t-purple-600 rounded-full animate-spin"></div>
           ) : user ? (
             <div className="flex items-center gap-4 bg-gray-50 p-1.5 pr-4 rounded-full border border-gray-100">
+              <span className="text-sm font-bold text-gray-700 hidden lg:block">
+                {user.displayName?.split(" ")[0]}
+              </span>
               <div className="relative group">
                 <img
                   src={user.photoURL || "https://i.ibb.co/mR79Y9z/user.png"}
                   alt="user"
                   className="w-10 h-10 rounded-full border-2 border-white shadow-sm cursor-pointer"
                 />
-                {/* Tooltip */}
                 <div className="absolute top-full mt-3 right-0 w-48 bg-white rounded-2xl shadow-xl border border-gray-100 p-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                   <p className="text-sm font-bold text-gray-800 truncate">
                     {user.displayName}
@@ -135,9 +135,6 @@ const Navbar = () => {
                   </button>
                 </div>
               </div>
-              <span className="text-sm font-bold text-gray-700 hidden lg:block">
-                {user.displayName?.split(" ")[0]}
-              </span>
             </div>
           ) : (
             <div className="flex items-center gap-3">
@@ -151,7 +148,7 @@ const Navbar = () => {
                 to="/register"
                 className="bg-gray-900 hover:bg-purple-600 text-white text-sm font-bold px-6 py-2.5 rounded-full transition-all shadow-lg active:scale-95"
               >
-                Join Now
+                Register Now
               </Link>
             </div>
           )}
@@ -166,7 +163,6 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Menu SlideDown */}
       <div
         className={`absolute top-full left-0 w-full bg-white border-b border-gray-100 flex flex-col p-6 gap-6 md:hidden transition-all duration-500 ease-in-out origin-top ${
           open

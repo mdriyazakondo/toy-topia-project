@@ -56,7 +56,6 @@ const Blog = () => {
     <div className="bg-gray-50 min-h-screen px-6 md:px-12 lg:px-24 xl:px-36 py-20">
       <title>Toy-Topia | Kids Blog</title>
 
-      {/* --- Header Section --- */}
       <div className=" text-center mb-16" data-aos="zoom-in">
         <span className="text-purple-600 font-bold tracking-[0.3em] uppercase text-xs mb-4 block">
           Our Journal
@@ -73,16 +72,14 @@ const Blog = () => {
         </p>
       </div>
 
-      {/* --- Blog Grid --- */}
       <div className="grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 ">
         {blogPosts.map((post, index) => (
           <article
             key={index}
-            className="group bg-white rounded-[32px] overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-purple-100 transition-all duration-500 flex flex-col h-full border border-gray-100"
+            className="group bg-white rounded-4xl overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-purple-100 transition-all duration-500 flex flex-col h-full border border-gray-100"
             data-aos="fade-up"
             data-aos-delay={index * 100}
           >
-            {/* Image Container */}
             <div className="relative overflow-hidden h-64">
               <img
                 src={post.img}
@@ -96,8 +93,7 @@ const Blog = () => {
               </div>
             </div>
 
-            {/* Content Container */}
-            <div className="p-8 flex flex-col flex-grow">
+            <div className="p-8 flex flex-col grow">
               <div className="flex items-center gap-2 text-gray-400 text-xs font-bold mb-4 uppercase tracking-widest">
                 <HiOutlineCalendar className="text-purple-500 text-base" />
                 {post.date}
@@ -107,7 +103,7 @@ const Blog = () => {
                 {post.title}
               </h2>
 
-              <p className="text-gray-500 text-sm leading-relaxed mb-6 flex-grow">
+              <p className="text-gray-500 text-sm leading-relaxed mb-6 grow">
                 {post.snippet}
               </p>
 
@@ -120,7 +116,6 @@ const Blog = () => {
         ))}
       </div>
 
-      {/* --- Newsletter/CTA Section --- */}
       <div
         className="mt-24 max-w-5xl mx-auto bg-gray-900 rounded-[40px] p-10 md:p-16 text-center text-white relative overflow-hidden"
         data-aos="flip-up"
@@ -135,7 +130,7 @@ const Blog = () => {
           <input
             type="email"
             placeholder="Enter your email"
-            className="bg-white/10 border border-white/20 px-6 py-4 rounded-2xl outline-none focus:ring-2 focus:ring-purple-500 flex-grow font-medium"
+            className="bg-white/10 border border-white/20 px-6 py-4 rounded-2xl outline-none focus:ring-2 focus:ring-purple-500 grow font-medium"
           />
           <button className="bg-purple-600 hover:bg-purple-700 px-8 py-4 rounded-2xl font-black transition-all active:scale-95 shadow-lg shadow-purple-900/40">
             Subscribe

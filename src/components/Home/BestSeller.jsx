@@ -25,7 +25,7 @@ const BestSeller = ({ seller }) => {
 
       {/* Profile Image Section */}
       <div className="relative flex items-center justify-center">
-        <div className="relative p-1 rounded-full bg-gradient-to-tr from-purple-500 to-indigo-500 group-hover:rotate-12 transition-transform duration-500">
+        <div className="relative p-1 rounded-full bg-linear-to-tr from-purple-500 to-indigo-500 group-hover:rotate-12 transition-transform duration-500">
           <div className="bg-white p-1 rounded-full">
             <img
               className="h-40 w-40 md:h-48 md:w-48 object-cover rounded-full group-hover:scale-105 transition-all duration-500"
@@ -56,7 +56,7 @@ const BestSeller = ({ seller }) => {
             Stock:{" "}
             <span className="text-gray-700 font-bold">{availableQuantity}</span>
           </div>
-          <div className="h-4 w-[1px] bg-gray-200"></div>
+          <div className="h-4 w-px bg-gray-200"></div>
           <div className="text-purple-600 font-bold text-lg">${price}</div>
         </div>
 
